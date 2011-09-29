@@ -14,14 +14,12 @@ class Chef
             :short       => "-K KEY",
             :long        => "--voxel-api-key KEY",
             :description => "Voxel hAPI Key",
-#            :required    => true,
             :proc        => Proc.new { |key| Chef::Config[:knife][:voxel_api_key] = key }
 
           option :voxel_api_secret,
             :short       => "-S SECRET",
             :long        => "--voxel-api-secret SECRET",
             :description => "Voxel hAPI Secret",
-#            :required    => true,
             :proc        => Proc.new { |secret| Chef::Config[:knife][:voxel_api_secret] = secret }
         end
       end
