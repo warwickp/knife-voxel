@@ -7,20 +7,22 @@ class Chef
         includer.class_eval do
 
           deps do
-            require 'voxel-hapi'
+            require 'hapi'
           end
 
           option :voxel_api_key,
-            :short => "-K KEY",
-            :long => "--voxel-api-key KEY",
+            :short       => "-K KEY",
+            :long        => "--voxel-api-key KEY",
             :description => "Voxel hAPI Key",
-            :proc => Proc.new { |key| Chef::Config[:knife][:voxel_api_key] = key }
+#            :required    => true,
+            :proc        => Proc.new { |key| Chef::Config[:knife][:voxel_api_key] = key }
 
           option :voxel_api_secret,
-            :short => "-S USERNAME",
-            :long => "--voxel-api-secret SECRET",
+            :short       => "-S SECRET",
+            :long        => "--voxel-api-secret SECRET",
             :description => "Voxel hAPI Secret",
-            :proc => Proc.new { |secret| Chef::Config[:knife][:voxel_api_secret] = secret }
+#            :required    => true,
+            :proc        => Proc.new { |secret| Chef::Config[:knife][:voxel_api_secret] = secret }
         end
       end
 
@@ -29,7 +31,7 @@ class Chef
           hapi = HAPI.new(
             :useauthkey     => true,
             :username       => Chef::Config[:knife][:voxel_api_key],
-            :password       => Chef::Config[:knife][:voxel_api_key],
+            :password       => Chef::Config[:knife][:voxel_api_secret],
             :default_format => :ruby,
             :debug          => false
           )
