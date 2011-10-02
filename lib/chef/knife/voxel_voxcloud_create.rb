@@ -98,7 +98,7 @@ class Chef
       def bootstrap_for_node(device)
         bootstrap = Chef::Knife::Bootstrap.new
 
-        bootstrap.name_args = [device['label']]
+        bootstrap.name_args = [device['ipassignments']['ipassignment'].select { |i| i['type'] == 'frontend' }.first['content']]
         bootstrap.config[:run_list] = config[:run_list]
         bootstrap.config[:ssh_user] = config[:ssh_user] || "root"
         bootstrap.config[:ssh_password] = device['accessmethods']['accessmethod'].select { |a| a['type'] == 'admin' }.first['password']
