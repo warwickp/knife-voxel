@@ -7,7 +7,7 @@ class Chef
         includer.class_eval do
 
           deps do
-            require 'hapi'
+            require 'voxel-hapi'
           end
 
           option :voxel_api_key,
