@@ -11,15 +11,22 @@ class Chef
       end
 
       def run
-        devices = [ ui.color('ID', :bold), ui.color('Name', :bold), ui.color('Status', :bold), ui.color('IP', :bold) ]
+        devices = [ ui.color('ID', :bold), ui.color('Name', :bold), ui.color('Type', :bold), ui.color('Status', :bold), ui.color('IP', :bold) ]
         statuses = hapi.helper_devices_status
 
         hapi.voxel_devices_list['devices']['device'].each do |device|
-        require 'pp'
-
           devices << device['id']
           devices << device['label']
-          devices << (statuses.has_key?(device['id']) ? statuses[device['id']] : "UNKNOWN")
+          devices << case device['type']['content']
+          when "Virtual Server"
+            "VoxCLOUD"
+          when "Server"
+            "VoxSERVER"
+          else
+            device['type']['content']
+          end
+
+          devices << (statuses.has_key?(device['id']) ? statuses[device['id']] : "N/A")
 
           if device.has_key?('ipassignments')
             ips = device['ipassignments']['ipassignment']
@@ -36,7 +43,7 @@ class Chef
           end
         end
 
-        puts ui.list(devices, :columns_across, 4)
+        puts ui.list(devices, :columns_across, 5)
       end
     end
   end
