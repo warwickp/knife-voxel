@@ -20,7 +20,7 @@ class Chef
         :short => "-C CONFIGID",
         :long => "--configuration-id CONFIGID",
         :description => "VoxSERVER Configuration Id",
-        :default => 1
+        :required => true
 
       option :swap_size,
         :short => "-S SIZE",
