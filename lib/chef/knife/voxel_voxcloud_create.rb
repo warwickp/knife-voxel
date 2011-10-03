@@ -17,25 +17,21 @@ class Chef
       banner "knife voxel voxcloud create (options)"
 
       option :processing_cores,
-        :short => "-C CORES",
         :long => "--processing-cores CORES",
         :description => "Total number of processing cores.  Memory is 2048xCORES",
         :default => 1
 
       option :disk_size,
-        :short => "-D SIZE",
         :long => "--disk-size SIZE",
         :description => "Disk Volume Size, in GB",
         :default => 10
 
       option :image_id,
-        :short => "-I IMAGE_ID",
         :long => "--image-id IMAGE",
         :description => "Image Id to Install",
         :required => true
 
       option :hostname,
-        :short => "-H NAME",
         :long => "--hostname NAME",
         :description => "The server's hostname"
 
@@ -56,7 +52,6 @@ class Chef
         :description => "The ssh password"
 
       option :facility,
-        :short => "-L FACILITY",
         :long => "--facility FACILITY",
         :description => "Voxel Facility (LDJ1, LGA8, AMS2, SIN1, etc)",
         :required => true
