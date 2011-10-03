@@ -17,19 +17,16 @@ class Chef
       banner "knife voxel voxservers create (options)"
 
       option :configuration_id,
-        :short => "-C CONFIGID",
         :long => "--configuration-id CONFIGID",
         :description => "VoxSERVER Configuration Id",
         :required => true
 
       option :swap_size,
-        :short => "-S SIZE",
         :long => "--swap-size SIZE",
         :description => "Swap Partition Size, in GB",
         :default => 4
 
       option :image_id,
-        :short => "-I IMAGE_ID",
         :long => "--image-id IMAGE",
         :description => "Image Id to Install",
         :required => true
@@ -56,7 +53,6 @@ class Chef
         :description => "The ssh password"
 
       option :facility,
-        :short => "-L FACILITY",
         :long => "--facility FACILITY",
         :description => "Voxel Facility (LDJ1, LGA8, AMS2, SIN1, etc)",
         :required => true
@@ -174,7 +170,7 @@ class Chef
 
             while %w{ QUEUED IN_PROGRESS }.include?( status['devices']['device']['status'] ) do
               print "."
-              status = hapi.voxel_voxcloud_status( :device_id => device['id'], :verbosity => 'extended' )
+              status = hapi.voxel_voxservers_status( :device_id => device['id'], :verbosity => 'extended' )
               sleep 10
             end
 

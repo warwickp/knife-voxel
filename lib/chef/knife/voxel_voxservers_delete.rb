@@ -12,7 +12,7 @@ class Chef
           device = hapi.voxel_devices_list( :device_id => device_id, :verbosity => 'extended' )
 
           if device['stat'] == "fail"
-            STDERR.puts "ERROR: #{device['err']['msg']}"
+            ui.error(device['err']['msg'])
           else
             device = device['devices']['device']
 
@@ -30,12 +30,12 @@ class Chef
               delete = hapi.voxel_voxservers_delete( :device_id => device_id )
 
               if delete['stat'] == "ok"
-                ui.warn("Deleted VoxSERVER device #{device['id']} named #{device['label']}")
+                ui.info("Deleted VoxSERVER device #{device['id']} named #{device['label']}")
               else
-                ui.error("Error removing VoxSERVER device #{device['label']}")
+                ui.error("Error removing VoxSERVER device #{device['label']}: #{delete['err']['msg']}")
               end
             else
-              ui.warn("Device #{device['id']} is not a VoxSERVER device.")
+              ui.error("Device #{device['id']} is not a VoxSERVER device.")
             end
           end
         end
