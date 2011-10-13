@@ -5,7 +5,7 @@ class Chef
     class VoxelVoxserversDelete < Knife
       include Knife::VoxelBase
 
-      banner "knife voxel voxservers delete (options)"
+      banner "knife voxel voxservers delete DEVICE_ID (options)"
 
       def run
         @name_args.each do |device_id|

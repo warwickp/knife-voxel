@@ -5,7 +5,7 @@ class Chef
     class VoxelVoxcloudDelete < Knife
       include Knife::VoxelBase
 
-      banner "knife voxel voxcloud delete (options)"
+      banner "knife voxel voxcloud delete DEVICE_ID (options)"
 
       def run
         if @name_args.empty?
@@ -16,7 +16,7 @@ class Chef
             device = hapi.voxel_devices_list( :device_id => device_id, :verbosity => 'extended' )
 
             if device['stat'] == "fail"
-              STDERR.puts "ERROR: #{device['err']['msg']}"
+              ui.error(device['err']['msg'])
             else
               device = device['devices']['device']
 

@@ -14,6 +14,10 @@ class Chef
         devices = [ ui.color('ID', :bold), ui.color('Name', :bold), ui.color('Type', :bold), ui.color('Status', :bold), ui.color('IP', :bold) ]
         statuses = hapi.helper_devices_status
 
+        puts "here"
+        require 'pp'
+        pp statuses
+
         devices_list = hapi.voxel_devices_list['devices']
 
         unless devices_list.empty?
