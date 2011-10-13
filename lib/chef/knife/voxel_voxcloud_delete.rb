@@ -29,7 +29,7 @@ class Chef
                 puts "#{ui.color("Private IP Address", :cyan)}: #{device['ipassignments']['ipassignment'].select { |i| i['type'] == 'backend' }.first['content']}"
                 puts "\n"
 
-                confirm("Do you really want to delete this VoxCLOUD device?")
+                confirm("Do you really want to delete this VoxCLOUD device")
 
                 delete = hapi.voxel_voxcloud_delete( :device_id => device_id )
 

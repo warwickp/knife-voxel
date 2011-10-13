@@ -32,9 +32,9 @@ class Chef
         :required => true
 
       option :hostname,
-        :short => "-H NAME",
         :long => "--hostname NAME",
-        :description => "The server's hostname"
+        :description => "The server's hostname",
+        :required => true
 
       option :chef_node_name,
         :short => "-N NAME",
