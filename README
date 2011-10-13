@@ -1,0 +1,37 @@
+= Introduction =
+
+knife-voxel is a plugin for the tool 'knife', part of the configuration
+management system 'chef'.   http://www.opscode.com/.   It allows you to
+provision Voxel dot Net (www.voxel.net) cloud instances (physical as
+well as virtual) and then bootstrap them as chef clients.
+
+This plugin is currently a work in progress, although all major
+functions should work as expected.  The command set models Voxel's API
+hAPI (http://api.voxel.net/docs/) .   We depend on the voxel-hapi
+library for access to this API.   This will be replaced with a fog provider
+based backend in the future.
+
+
+= Usage = 
+
+** VOXEL COMMANDS **
+knife voxel voxcloud delete DEVICE_ID (options)
+knife voxel voxservers inventory list (options)
+knife voxel images list (options)
+knife voxel voxcloud create (options)
+knife voxel devices list (options)
+knife voxel voxservers delete DEVICE_ID (options)
+knife voxel voxservers create (options)
+
+
+= Examples =
+
+> knife voxel voxcloud delete 12345
+
+> knife voxel voxcloud create --image-id 55 --hostname app1.domain.com \
+  --processing-cores 4 --disk-size 20 --facility LGA8
+
+= Author =
+
+J. W. Brinkerhoff <jwb@voxel.net>
+
