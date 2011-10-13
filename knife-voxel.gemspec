@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
-  s.add_runtime_dependency "voxel-hapi"
+  s.add_runtime_dependency "voxel-hapi", ">= 1.1.10"
 end

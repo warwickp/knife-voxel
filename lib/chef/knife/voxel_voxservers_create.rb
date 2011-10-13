@@ -147,14 +147,14 @@ class Chef
         )
 
         if create['stat'] == "fail"
-          STDERR.puts "ERROR: #{create['err']['msg']}"
+          ui.error(create['err']['msg'])
         else
           sleep 2
           
           device = hapi.voxel_devices_list( :device_id => create['device']['id'], :verbosity => 'extended' )
 
           if device['stat'] == "fail"
-            STDERR.puts "ERROR: #{device['err']['msg']}"
+            ui.error(device['err']['msg'])
           else
             device = device['devices']['device']
 

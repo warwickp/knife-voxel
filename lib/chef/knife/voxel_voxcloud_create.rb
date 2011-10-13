@@ -33,7 +33,8 @@ class Chef
 
       option :hostname,
         :long => "--hostname NAME",
-        :description => "The server's hostname"
+        :description => "The server's hostname",
+        :required => true
 
       option :chef_node_name,
         :short => "-N NAME",
@@ -146,14 +147,14 @@ class Chef
         )
 
         if create['stat'] == "fail"
-          STDERR.puts "ERROR: #{create['err']['msg']}"
+          ui.error(create['err']['msg'])
         else
           sleep 2
-          
+
           device = hapi.voxel_devices_list( :device_id => create['device']['id'], :verbosity => 'extended' )
 
           if device['stat'] == "fail"
-            STDERR.puts "ERROR: #{device['err']['msg']}"
+            ui.error("Device Listing Failed: #{device['err']['msg']}")
           else
             device = device['devices']['device']
 
