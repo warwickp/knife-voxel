@@ -28,13 +28,11 @@ class Chef
 
       option :image_id,
         :long => "--image-id IMAGE",
-        :description => "Image Id to Install",
-        :required => true
+        :description => "Image Id to Install"
 
       option :hostname,
         :long => "--hostname NAME",
-        :description => "The server's hostname",
-        :required => true
+        :description => "The server's hostname"
 
       option :chef_node_name,
         :short => "-N NAME",
@@ -54,8 +52,7 @@ class Chef
 
       option :facility,
         :long => "--facility FACILITY",
-        :description => "Voxel Facility (LDJ1, LGA8, AMS2, SIN1, etc)",
-        :required => true
+        :description => "Voxel Facility (LDJ1, LGA8, AMS2, SIN1, etc)"
 
       option :identity_file,
         :short => "-i IDENTITY_FILE",
