@@ -16,18 +16,18 @@ class Chef
 
       banner "knife voxel voxservers facilities"
 
-     
+
 
       def run
-        
+
         facilities = hapi.voxel_voxcloud_facilities_list
-        
-         unless facilities['facilities'].empty?
-            facilities['facilities']['facility'].each do |facility|
-              puts ui.color("#{facility['label']} (#{facility['description']})\n", :bold)
-            end
-         end
-                 
+
+        unless facilities['facilities'].empty?
+          facilities['facilities']['facility'].each do |facility|
+            puts ui.color("#{facility['label']} (#{facility['description']})\n", :bold)
+          end
+        end
+
       end
 
     end
