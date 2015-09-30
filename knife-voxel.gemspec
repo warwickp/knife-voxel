@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Knife::Voxel::VERSION
   s.authors     = ["James W. Brinkerhoff"]
   s.email       = ["jwb@voxel.net"]
-  s.homepage    = "http://api.voxel.net/"
+  s.homepage    = "https://github.com/warwickp/knife-voxel"
   s.summary     = "Voxel hAPI Support for Chef's knife command"
   s.description = s.summary
 
